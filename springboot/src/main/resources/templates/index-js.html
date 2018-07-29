@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello world</title>
+
+<!-- Css ↓   /项目虚拟目录-->
+<link rel="stylesheet" th:href="@{/bootstrap-table.min.css}">
+<link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+
+<!-- JS ↓ -->
+<script type="text/javascript" th:src="@{/jquery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap-table.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap.min.js}"></script>
+</head>
+<body>
+在前端使用thymeleaf展示后台数据
+<h1>  User List Javascript Data </h1>
+
+<table id="table">
+    <thead>
+        <tr>
+           <th data-field="id">id</th>
+           <th data-field="loginName">loginName</th>
+           <th data-field="nickName">nickName</th>
+        </tr>
+    </thead>
+
+</table>
+
+
+    
+<script>
+    var $table = $('#table');
+    $(function () {
+        var data = [
+            {
+                "id": 0,
+                "loginName": "Item 0",
+                "nickName": "$0"
+            },
+            {
+                "id": 1,
+                "loginName": "Item 1",
+                "nickName": "$1"
+            },
+            {
+                "id": 2,
+                "loginName": "Item 2",
+                "nickName": "$2"
+            },
+            {
+                "id": 3,
+                "loginName": "Item 3",
+                "nickName": "$3"
+            },
+            {
+                "id": 4,
+                "loginName": "Item 4",
+                "nickName": "$4"
+            },
+            {
+                "id": 5,
+                "loginName": "Item 5",
+                "nickName": "$5"
+            }
+        ];
+        
+        console.log("data:" + data)
+        $table.bootstrapTable({data: data});
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello world</title>
+
+<!-- Css ↓   /项目虚拟目录-->
+<link rel="stylesheet" th:href="@{/bootstrap-table.min.css}">
+<link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+
+<!-- JS ↓ -->
+<script type="text/javascript" th:src="@{/jquery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap-table.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap.min.js}"></script>
+</head>
+<body>
+在前端使用thymeleaf展示后台数据
+<h1>  User List Html Data </h1>
+
+<table data-toggle="table">
+    <tr>
+       <th>id</th>
+       <th>loginName</th>
+       <th>nickName</th>
+    </tr>
+
+    <tr th:each="user : ${data}">
+      <td th:text="${user.id}">id</td>
+      <td th:text="${user.loginName}">loginName</td>
+      <td th:text="${user.passWord}">passWord</td>
+    </tr>
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello world</title>
+
+<!-- Css ↓   /项目虚拟目录-->
+<link rel="stylesheet" th:href="@{/bootstrap-table.min.css}">
+<link rel="stylesheet" th:href="@{/bootstrap.min.css}">
+
+<!-- JS ↓ -->
+<script type="text/javascript" th:src="@{/jquery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap-table.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap.min.js}"></script>
+</head>
+<body>
+在前端使用thymeleaf展示后台数据
+<h1>  User List Javascript thymeleaf Ajax Data </h1>
+
+<table id="table"  data-toggle="table">
+    <thead>
+        <tr>
+           <th data-field="id">id</th>
+           <th data-field="loginName">loginName</th>
+           <th data-field="passWord">password</th>
+        </tr>
+    </thead>
+
+</table>
+
+
+    
+<script >
+    var $table = $('#table');
+
+    $(function(){ 
+         $.ajax({
+            type: "GET",             
+            url: "http://localhost:8099/User",                        
+            dataType: "json",             
+            success: function (data) {                 
+                $("#table").bootstrapTable('load', data);   
+                console.log(data)          
+                },             
+            error: function () {                 
+                alert("错误");             
+                }         
+            });     
+    });
+
+</script>
+</body>
+</html>
